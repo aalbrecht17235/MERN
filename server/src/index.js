@@ -23,7 +23,9 @@ mongoose.connect(config.mongoose.uri, { useMongoClient: true })
 mongoose.Promise = global.Promise;
 
 // App Setup
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000']
+}));
 app.use(morgan('dev'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
