@@ -10081,7 +10081,7 @@ const Account = () => {
           { className: 'text-muted' },
           'Server status: ',
           status,
-          ' \u2600'
+          ' '
         ),
         profile && renderProfileForm()
       )
