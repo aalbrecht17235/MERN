@@ -146,7 +146,7 @@ const Account = () => {
         Account
       </h4>
       <div className='card-body'>
-      <p className="text-muted">Server status: {status} ☀</p>
+      <p className="text-muted">Server status: {status} </p>
         {profile && renderProfileForm()}
       </div>
       </div>
