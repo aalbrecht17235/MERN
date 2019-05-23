@@ -8,7 +8,7 @@ module.exports = merge(common, {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
-                'API_URI': JSON.stringify('https://agile-fortress-47729.herokuapp.com/')
+                'API_URI': JSON.stringify('https://obscure-reaches-35710.herokuapp.com/')
             },
         }),
     ]
