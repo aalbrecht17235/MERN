@@ -8,11 +8,12 @@ const Signup = (props) => {
     const [errMsg, setErrorMsg] = useState('');
     const options = {
         initialValues: {
-            'firstName': 'a',
-            'lastName': 'a',
-            'email': 'aa@mail.com',
-            'password': 'aa',
-            'password2': 'a'
+            'firstName': '',
+            'lastName': '',
+            'description': '',
+            'email': '',
+            'password': '',
+            'password2': ''
         },
         callback: () => {
             if (inputs.password == inputs.password2) {
@@ -53,6 +54,17 @@ const Signup = (props) => {
                         onChange={onChange}
                         className="form-control form-control-lg"
                         placeholder="Last Name"
+                        required/>
+                </div>
+                <div className="form-group">
+                    <label>Description:</label>
+                    <input
+                        name="description"
+                        value={inputs.description}
+                        type='text'
+                        onChange={onChange}
+                        className="form-control form-control-lg"
+                        placeholder="About You"
                         required/>
                 </div>
                 <div className="form-group">

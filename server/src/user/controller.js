@@ -3,7 +3,7 @@ import UserModel from './model';
 
 export default {
     signup : (req, res, next) => {
-        const { email, password, firstName, lastName } = req.body;
+        const { email, password, firstName, lastName, description } = req.body;
     
         if (!email || !password) {
             return res
@@ -25,6 +25,7 @@ export default {
                         first: firstName, 
                         last: lastName
                     },
+                    description: description,
                     email: email,
                     password: password
                 })
@@ -79,7 +80,8 @@ export default {
                 name: {
                     first: req.body.firstName, 
                     last: req.body.lastName
-                }
+                },
+                description: req.body.description
             };
             delete newProfile.email;
             delete newProfile.phone;

@@ -13,7 +13,8 @@ const Account = () => {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
+        password: '',
+        description: ''
     },
     callback: () => {
       updateUserProfile(inputs)
@@ -27,7 +28,8 @@ const Account = () => {
     setInputs({
       firstName: r.data.name.first,
       lastName: r.data.name.last,
-      email: r.data.email
+      email: r.data.email,
+      description: r.data.description
     })
     setErrMsg();
   });
@@ -85,6 +87,20 @@ const Account = () => {
           value={inputs.lastName}
           className="form-control form-control-lg"
           placeholder="Last Name"
+          required
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Description:</label>
+        <input
+          disabled={!editting}
+          type='text'
+          name="description"
+          onChange={onChange}
+          value={inputs.description}
+          className="form-control form-control-lg"
+          placeholder="About you"
           required
         />
       </div>

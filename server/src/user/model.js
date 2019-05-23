@@ -8,6 +8,7 @@ const Schema = new mongoose.Schema({
         first: String,
         last: String,
     },
+    description: String,
     email: {
         type: String,
         unique: true,
