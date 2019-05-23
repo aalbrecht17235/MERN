@@ -56,9 +56,7 @@ _mongoose2.default.connect(_config2.default.mongoose.uri, { useMongoClient: true
 _mongoose2.default.Promise = global.Promise;
 
 // App Setup
-app.use((0, _cors2.default)({
-    origin: ['http://localhost:3000']
-}));
+app.use((0, _cors2.default)());
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
