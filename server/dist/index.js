@@ -55,23 +55,25 @@ _mongoose2.default.connect(_config2.default.mongoose.uri, { useMongoClient: true
 
 _mongoose2.default.Promise = global.Promise;
 
+var router = require('express').Router();
+
 // App Setup
 app.use((0, _cors2.default)());
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
-app.get('/ping', function (req, res) {
+router.get('/ping', function (req, res) {
     return res.send('pong');
 });
-app.get('/', function (req, res) {
-    return res.json({ 'source': 'MERN Stack App' });
+router.get('/', function (req, res) {
+    return res.json({ 'source': 'MERN Stack app' });
 });
-app.post('/signup', _authentication2.default.signup);
-app.post('/signin', _authentication2.default.signin);
-app.get('/auth-ping', _middlewares2.default.loginRequired, function (req, res) {
+router.post('/signup', _authentication2.default.signup);
+router.post('/signin', _authentication2.default.signin);
+router.get('/auth-ping', _middlewares2.default.loginRequired, function (req, res) {
     return res.send('connected');
 });
-app.use('/user', _middlewares2.default.loginRequired, _router2.default);
+router.use('/user', _middlewares2.default.loginRequired, _router2.default);
 
 app.use(function (err, req, res, next) {
     console.log('Error:', err.message);

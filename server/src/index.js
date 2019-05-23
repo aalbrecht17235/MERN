@@ -22,17 +22,20 @@ mongoose.connect(config.mongoose.uri, { useMongoClient: true })
 
 mongoose.Promise = global.Promise;
 
+const router = require('express').Router()
+
+
 // App Setup
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
-app.get('/ping', (req, res) => res.send('pong'))
-app.get('/', (req, res) => res.json({'source': 'MERN Stack App'}))
-app.post('/signup', Authentication.signup)
-app.post('/signin', Authentication.signin)
-app.get('/auth-ping', Middlewares.loginRequired, (req, res) => res.send('connected'))
-app.use('/user', Middlewares.loginRequired, UserRouter)
+router.get('/ping', (req, res) => res.send('pong'))
+router.get('/', (req, res) => res.json({'source': 'MERN Stack app'}))
+router.post('/signup', Authentication.signup)
+router.post('/signin', Authentication.signin)
+router.get('/auth-ping', Middlewares.loginRequired, (req, res) => res.send('connected'))
+router.use('/user', Middlewares.loginRequired, UserRouter)
 
 app.use((err, req, res, next) => {
     console.log('Error:', err.message);
