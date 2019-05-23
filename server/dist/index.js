@@ -43,7 +43,7 @@ var _router2 = _interopRequireDefault(_router);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (!process.env.JWT_SECRET) {
-    var err = new Error('No JWT_SECRET in env variable.');
+    var err = new Error('No JWT_SECRET in env variable');
     console.error(err);
 }
 

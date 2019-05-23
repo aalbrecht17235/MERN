@@ -20,7 +20,8 @@ exports.default = {
             email = _req$body.email,
             password = _req$body.password,
             firstName = _req$body.firstName,
-            lastName = _req$body.lastName;
+            lastName = _req$body.lastName,
+            description = _req$body.description;
 
 
         if (!email || !password) {
@@ -38,6 +39,7 @@ exports.default = {
                     first: firstName,
                     last: lastName
                 },
+                description: description,
                 email: email,
                 password: password
             });
@@ -89,7 +91,8 @@ exports.default = {
                 name: {
                     first: req.body.firstName,
                     last: req.body.lastName
-                }
+                },
+                description: req.body.description
             };
             delete newProfile.email;
             delete newProfile.phone;

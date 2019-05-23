@@ -15,11 +15,13 @@ var _bcryptNodejs2 = _interopRequireDefault(_bcryptNodejs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Define the model
+/* eslint-disable no-irregular-whitespace */
 var Schema = new _mongoose2.default.Schema({
     name: {
         first: String,
         last: String
     },
+    description: String,
     email: {
         type: String,
         unique: true,
@@ -30,14 +32,9 @@ var Schema = new _mongoose2.default.Schema({
         default: false
     },
     password: String,
-    phone: {
-        number: {
-            type: String
-        },
-        verified: {
-            type: Boolean,
-            default: false
-        }
+    photo: {
+        data: Buffer,
+        contentType: String
     }
 });
 
